@@ -1,6 +1,7 @@
-import React from 'react'
+import React from 'react';
 import {Container, Row,} from 'react-bootstrap';
 import User from './User';
+import { connect } from 'react-redux'
  
  const Users = (props) => { 
     return (
@@ -12,15 +13,19 @@ import User from './User';
                         key={user.id}                     
                         deleteUser={props.deleteUser} 
                         editUser={props.editUser}
-
-                    />
-                    
-                })        
+                    />                    
+                })     
            }
            
             </Row>            
         </Container>
-    );
-        }        
+        );
+    }   
+           const mapStateToProps = (state) =>{
+               return {
+                   usersData: state.users
+                      }
+                    }
+                
 
-export default Users;
+export default connect(mapStateToProps, {})(Users);

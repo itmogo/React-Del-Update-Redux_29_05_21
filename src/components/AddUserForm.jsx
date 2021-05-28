@@ -1,8 +1,8 @@
 // short cut to create class comp is rcc
-//import { connect } from 'react-redux' // new code
-import React, { Component } from "react";
-import { Form, Button } from "react-bootstrap";
-//import addUser from '../actions/userAction';
+import { connect } from 'react-redux'; // new code
+import React, { Component } from 'react';
+import { Form, Button } from 'react-bootstrap';
+import { addUser} from '../actions/userActions';
 
 
 
@@ -39,9 +39,9 @@ import { Form, Button } from "react-bootstrap";
 
   handleSubmit = (e)=> {
       e.preventDefault();
-      this.props.addUser(this.state);
+      this.props.addNewUser(this.state);
       //set form to empty fields
-      this.setState({
+     this.setState({
           name: "",
           email: "",
           gen: "",
@@ -52,7 +52,7 @@ import { Form, Button } from "react-bootstrap";
   
   render() {
     return (
-      <Form onSubmit= {this.handleSubmit} >
+      <Form>
         <Form.Group controlId="formBasicEmail">
           <Form.Label>Name</Form.Label>
           <Form.Control
@@ -106,11 +106,20 @@ import { Form, Button } from "react-bootstrap";
           />
         </Form.Group>
 
-        <Button variant="primary" type="submit" style={{marginBottom: '15px'}} >
+        <Button variant="primary" type="submit" onClick = {this.handleSubmit}  style={{marginBottom: '15px'}} >
           Submit
         </Button>
       </Form>
     );
   }
 }
-   export default  AddUserForm;
+
+    // connecting our userform to the store, we create a props called addnew user
+    // which takes the adduser function
+    const mapDispatchToProps  = {
+      addNewUser : addUser,    
+    
+    }
+
+
+   export default connect(null, mapDispatchToProps)(AddUserForm);

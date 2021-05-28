@@ -20,7 +20,7 @@ class App extends Component {
   }
 
   // a method to add this new user to the users state in app js
-
+// comments
       addNewUser = (user) => {
     user.id = Math.random().toString()
     this.setState({
@@ -40,7 +40,8 @@ deleteUser = (id) =>{
           users: this.state.users.map(user => user.id ===id ? updatedUser : user)
         })
       }
-
+ //new comments
+ 
   render() {
     return (
       <>
@@ -49,7 +50,7 @@ deleteUser = (id) =>{
           paddingTop: "3rem",
           marginBotton: "3rem",
           marginRight: "1rem",
-          backgroundColor: "lightgray",
+          
           backgroundImage: `url("background.jpg")`,         
           
         }}>
