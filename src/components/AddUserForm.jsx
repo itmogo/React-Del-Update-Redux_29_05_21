@@ -1,9 +1,13 @@
 // short cut to create class comp is rcc
-
+//import { connect } from 'react-redux' // new code
 import React, { Component } from "react";
 import { Form, Button } from "react-bootstrap";
+//import addUser from '../actions/userAction';
 
-export default class AddUserForm extends Component {
+
+
+
+ class AddUserForm extends Component {
   //create state to collect date
 
   constructor(props) {
@@ -102,10 +106,11 @@ export default class AddUserForm extends Component {
           />
         </Form.Group>
 
-        <Button variant="primary" type="submit">
+        <Button variant="primary" type="submit" style={{marginBottom: '15px'}} >
           Submit
         </Button>
       </Form>
     );
   }
 }
+   export default  AddUserForm;

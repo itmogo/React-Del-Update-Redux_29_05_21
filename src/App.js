@@ -1,4 +1,4 @@
-import logo from "./logo.svg";
+//import logo from "./logo.svg";
 
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
@@ -21,13 +21,12 @@ class App extends Component {
 
   // a method to add this new user to the users state in app js
 
-  addNewUser = (user) => {
+      addNewUser = (user) => {
     user.id = Math.random().toString()
     this.setState({
-        users: [...this.state.users, user]
-    })
-
-}
+      users: [...this.state.users, user]
+   })
+ } 
 
 // delete a user info
 deleteUser = (id) =>{
@@ -45,13 +44,23 @@ deleteUser = (id) =>{
   render() {
     return (
       <>
-        <Container fluid style={{marginTop:"2rem", backgroundColor:  "lightgray"}}>
+        <Container fluid style={{
+//marginTop: "3rem",
+          paddingTop: "3rem",
+          marginBotton: "3rem",
+          marginRight: "1rem",
+          backgroundColor: "lightgray",
+          backgroundImage: `url("background.jpg")`,         
+          
+        }}>
           <Row>
             <Col md="4"> 
+            <h3 style={{color:'navy'}}>Sign-In Form</h3>
             <AddUserForm addUser={this.addNewUser} />
             </Col>
             <Col md="8">{/*passing users state as a prop*/}
               
+            <h3 style={{color:'navy'}}>Users List</h3>
               <Users 
               usersData={this.state.users}
                deleteUser={this.deleteUser} 

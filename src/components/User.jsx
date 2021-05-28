@@ -47,7 +47,9 @@ const User = (props) => {
           </Card.Text>
           <Card.Link href="#" onClick= {handleShow} >Edit</Card.Link>
           <Card.Link href="#">
-            <Button variant="danger" size="sm" onClick={handleDelete}>Delete</Button>
+            <Button variant="danger" 
+            size="sm"
+             onClick={handleDelete}>Delete</Button>
           </Card.Link>
         </Card.Body>
       </Card>
