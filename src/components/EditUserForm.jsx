@@ -1,6 +1,7 @@
 import React, { Component } from "react";
-
-import { Form, Button } from "react-bootstrap";    
+import { Form, Button } from "react-bootstrap"; 
+import { connect} from 'react-redux';
+import { updateUserAction } from '../actions/userActions';
 
     class EditUserForm extends Component {
       //create state to collect date
@@ -30,7 +31,8 @@ import { Form, Button } from "react-bootstrap";
       //create a submit handle funciotn to take event
       handleSubmit = (e) => {
         e.preventDefault();
-        this.props.editUser(this.state.id, this.state)
+        this.props.updateUserAction(this.state.id, this.state)
+      // this.props.editUser(this.state.id, this.state)
         //this.props.addUser(this.state);
         //set form to empty fields
         this.setState({
@@ -103,14 +105,18 @@ import { Form, Button } from "react-bootstrap";
           />
         </Form.Group>
 
-            <Button variant="primary" type="submit">
+            <Button variant="primary" type="submit" onSubmit={this.handleSubmit}>
               Submit
             </Button>
           </Form>
         );
       }
     }
-  
 
+    let mapDispatchToProps = {
+      updateUserAction,
+    };
 
-export default EditUserForm;
+    let mapStateToProps = () => {};
+    
+export default  connect(mapStateToProps, mapDispatchToProps)(EditUserForm);

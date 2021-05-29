@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import { Card, Col, Button, Modal } from "react-bootstrap";
 import EditUserForm from './EditUserForm';
+import {connect} from 'react-redux';
+import { deleteUserAction} from '../actions/userActions';
 
 const User = (props) => {
 
@@ -13,7 +15,7 @@ const User = (props) => {
     //create event handler
     const handleDelete =(e) =>{
         e.preventDefault();
-        props.deleteUser(props.userInfo.id);
+        props.deleteUserAction(props.userInfo.id);
        };
 
   return (
@@ -58,4 +60,10 @@ const User = (props) => {
   );
 };
 
-export default User;
+let mapDispatchToProps ={
+    deleteUserAction,
+};
+  let mapStateToProps = () => {};
+  
+
+export default connect(mapStateToProps, mapDispatchToProps)(User);
